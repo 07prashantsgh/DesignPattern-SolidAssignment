@@ -5,26 +5,13 @@ package net.media.training.live.ocp;
  */
 
 public class SpaceSlotResource extends Resource{
-
-    @Override
-    public int allocate() {
-        int resourceId = findFreeSpaceSlot();
-        markSpaceSlotBusy(resourceId);
-        return resourceId;
+    protected void markSlotFree(int resourceId) {
     }
 
-    @Override
-    public void free(int resourceId) {
-        markSpaceSlotFree(resourceId);
+    protected void markSlotBusy(int resourceId) {
     }
 
-    protected void markSpaceSlotFree(int resourceId) {
-    }
-
-    protected void markSpaceSlotBusy(int resourceId) {
-    }
-
-    protected int findFreeSpaceSlot() {
+    protected int findFreeSlot() {
         return 0;
     }
 

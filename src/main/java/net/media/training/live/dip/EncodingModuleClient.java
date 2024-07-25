@@ -1,4 +1,9 @@
 package net.media.training.live.dip;
+import net.media.training.live.dip.Encoder.Base64Encoder;
+import net.media.training.live.dip.Reader.FileReader;
+import net.media.training.live.dip.Reader.NetworkReader;
+import net.media.training.live.dip.Writer.DBWriter;
+import net.media.training.live.dip.Writer.FileWriter;
 
 import java.io.IOException;
 
@@ -11,8 +16,7 @@ import java.io.IOException;
  */
 public class EncodingModuleClient {
     public static void main(String[] args) throws IOException {
-        EncodingModule encodingModule  = new EncodingModule();
-        encodingModule.encodeWithFiles();
-        encodingModule.encodeBasedOnNetworkAndDatabase();
+        EncodeManager.encodeTask(new FileReader(), new Base64Encoder(), new FileWriter());
+        EncodeManager.encodeTask(new NetworkReader(), new Base64Encoder(), new DBWriter());
     }
 }
